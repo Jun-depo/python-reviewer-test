@@ -10,7 +10,7 @@ def main(argv):
     cmd = argv
     log_file_name = datetime.datetime.now(datetime.timezone.utc).strftime("%m_%d_%Y") + "_logfile"
     kickoff_subprocess(cmd, log_file_name)
-    upload_output_to_S3(log_file_name)
+    upload_output_to_S3(log_file_name, aws_region)
 
 def kickoff_subprocess(cmd, log_file_name):
     process = subprocess.call(quote(cmd))
